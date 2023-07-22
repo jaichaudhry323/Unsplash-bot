@@ -18,9 +18,9 @@ search_photos = 'https://api.unsplash.com/search/photos/?query={}&client_id={}'
 
 
 # Checking whether Unsplash-Access-key is valid.If not, Quitting...
-if isinstance(d:=requests.get(api.format(access_key)).json(),dict) and bool(d['errors']):
-    print(f"\033[0;31m{d['errors'][0]}\n\nQuitting...\033[0m")
-    exit(0)
+# if isinstance(d:=requests.get(api.format(access_key)).json(),dict) and bool(d['errors']):
+#     print(f"\033[0;31m{d['errors'][0]}\n\nQuitting...\033[0m")
+#     exit(0)
 
 Bot = Client('unsplash-bot',API_ID,API_HASH,bot_token=BOT_TOKEN)
 
