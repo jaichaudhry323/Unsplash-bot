@@ -8,13 +8,14 @@ WORKDIR /EXAMPLE
 
 # This command would copy EVERY FILE from your project folder into your container, so be careful.
 # COPY . .
-COPY ["bot.py", "config.py", "app.json", "./"]
+COPY ["bot.py", "config.py", "app.json", "requirements.txt", "app.py", "./"]
 
 # Installing needed packages and dependencies.**
 RUN pip install -r requirements.txt
 
 # This command basically executes your main file with Python.
 CMD ["python", "bot.py"]
+CMD ["python", "app.py"]
 
 # Setting a port for your app communications with Telegram servers.
 EXPOSE 80/tcp
