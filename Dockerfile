@@ -18,5 +18,5 @@ CMD ["python", "bot.py"]
 CMD ["python", "app.py"]
 
 # Setting a port for your app communications with Telegram servers.
-EXPOSE 8443 80/tcp
+EXPOSE 80 8443
 
