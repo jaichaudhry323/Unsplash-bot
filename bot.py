@@ -65,6 +65,7 @@ privateButton = types.InlineKeyboardMarkup(
 # Ping
 @Bot.on_message(filters.command(['ping'],['/','!']))
 async def botPing(c,msg: types.Message):
+    print("received request")
     await msg.reply('Pong.')
 
 
