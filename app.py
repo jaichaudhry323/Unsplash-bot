@@ -17,8 +17,8 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-# global bot
-# bot = telegram.Bot(token='5602023512:AAETtyiKUXT8b-jmXtkk5jkt79xw9YcD0qo')
+global bot
+bot = telegram.Bot(token='5602023512:AAETtyiKUXT8b-jmXtkk5jkt79xw9YcD0qo')
 
 @app.route('/hook', methods=['GET','POST'])
 def webhook_handler():
