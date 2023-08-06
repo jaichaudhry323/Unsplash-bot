@@ -26,7 +26,8 @@ def webhook_handler():
             # update = telegram.Update.de_json(request.get_json(force=True), bot)
     
             # chat_id = update.message.chat.id
-            chat_id = 977497302
+            # chat_id = 977497302
+            chat_id = request.json["message"]["chat"]["id"]
             print("chat_id: ", chat_id)
     
             # Telegram understands UTF-8, so encode text for unicode compatibility
