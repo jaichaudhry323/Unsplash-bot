@@ -38,7 +38,7 @@ def webhook_handler():
         text = update.message.text.encode('utf-8')
         
         # repeat the same message back (echo)
-        bot.sendMessage(chat_id=chat_id, text=text)
+        await bot.send_message(chat_id=chat_id, text=text)
 
     return 'ok'
 
