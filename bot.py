@@ -232,23 +232,23 @@ async def back_cb(c,q: types.CallbackQuery):
 #     except Exception as e:
 #         return jsonify({'error': str(e)}), 500
 
-# ============================================================================
-from flask import Flask, request
+# # ============================================================================
+# from flask import Flask, request
 
-app = Flask(__name__)
-@app.route('/healthcheck', methods=['GET'])
-def set_healthcheck():
+# app = Flask(__name__)
+# @app.route('/healthcheck', methods=['GET'])
+# def set_healthcheck():
     
-    print("health check found")
-    try:
-        print("health check ok")
-        return "health check ok"
-    except:
-        print("health check exception")
-        return "health check ok"
+#     print("health check found")
+#     try:
+#         print("health check ok")
+#         return "health check ok"
+#     except:
+#         print("health check exception")
+#         return "health check ok"
 
-app.run('0.0.0.0', port=81)
-# ============================================================================
+# app.run('0.0.0.0', port=81)
+# # ============================================================================
 
 print('\033[32mBot has booted.')
 Bot.run()
