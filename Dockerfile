@@ -13,10 +13,11 @@ COPY ["bot.py", "config.py", "app.json", "requirements.txt", "app.py", "./"]
 # Installing needed packages and dependencies.**
 RUN pip install -r requirements.txt
 
+# Setting a port for your app communications with Telegram servers.
+EXPOSE 80
+
 # This command basically executes your main file with Python.
 CMD ["python", "bot.py"]
 CMD ["python", "app.py"]
 
-# Setting a port for your app communications with Telegram servers.
-EXPOSE 80 8443
-
+HEALTHCHECK --interval=30s --timeout=10s CMD curl --fail http://localhost:80/healthcheck || exit 1
