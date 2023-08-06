@@ -224,8 +224,29 @@ async def back_cb(c,q: types.CallbackQuery):
     )
 
 
+# =====================================================================================
+from simple_http_server import request_map
+from simple_http_server import Response
+from simple_http_server import MultipartFile
+from simple_http_server import Parameter
+from simple_http_server import Parameters
+from simple_http_server import Header
+from simple_http_server import JSONBody
+from simple_http_server import HttpError
+from simple_http_server import StaticFile
+from simple_http_server import Headers
+from simple_http_server import Cookies
+from simple_http_server import Cookie
+from simple_http_server import Redirect
+from simple_http_server import ModelDict
 
+# request_map has an alias name `route`, you can select the one you familiar with.
+@request_map("/healthcheck",  method=["GET"])
+def my_ctrl():
+    print("received request on /healthcheck !!")
+    return {"code": 0, "message": "success"}  # You can return a dictionary, a string or a `simple_http_server.simple_http_server.Response` object.
 
+# =====================================================================================
 
 
 
