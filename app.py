@@ -50,12 +50,16 @@ def set_webhook():
         print("webhook setup not ok")
         return "webhook setup failed"
 
-@app.route('/healthcheck', methods=['GET'])
-def set_webhook():
     
-    if s:
+@app.route('/healthcheck', methods=['GET'])
+def set_healthcheck():
+    
+    print("health check found")
+    try:
         print("health check ok")
         return "health check ok"
-    else:
+    except:
+        print("health check exception")
         return "health check ok"
-  
+
+app.run('0.0.0.0', port=80)
