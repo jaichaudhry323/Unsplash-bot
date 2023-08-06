@@ -14,7 +14,7 @@ COPY ["bot.py", "config.py", "app.json", "requirements.txt", "app.py", "unsplash
 RUN pip install -r requirements.txt
 
 # Setting a port for your app communications with Telegram servers.
-EXPOSE 80
+EXPOSE 80, 81
 
 # This command basically executes your main file with Python.
 CMD ["python", "bot.py"]
