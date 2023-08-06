@@ -1,16 +1,3 @@
-# from flask import Flask
-# import sys
-
-# app = Flask(__name__)
-# # cors = CORS(app)
-
-# if __name__ == '__main__':
-#   app.run(host='0.0.0.0', port=80)
-
-# import requests
-# resp = requests.get(http://0.0.0.0:80/healthcheck)
-# print("healthcheck response: ", resp)
-
 
 import telegram
 import asyncio
@@ -23,29 +10,33 @@ bot = telegram.Bot(token='5602023512:AAETtyiKUXT8b-jmXtkk5jkt79xw9YcD0qo')
 
 # using telegram.Bot
 async def send(chat, msg):
-    bot.send_message(chat_id=chat, text=msg)
+    await bot.sendMessage(chat_id=chat, text=msg)
+    print('Message Sent!')
+
 
 @app.route('/hook', methods=['GET','POST'])
 def webhook_handler():
     print("received message 1")
 
-    if request.method == "POST":
-        print("received message 2")
-        
-        # retrieve the message in JSON and then transform it to Telegram object
-        update = telegram.Update.de_json(request.get_json(force=True), bot)
-
-        chat_id = update.message.chat.id
-
-        print("chat_id: ", chat_id)
-
-        # Telegram understands UTF-8, so encode text for unicode compatibility
-        text = update.message.text.encode('utf-8')
-        
-        # repeat the same message back (echo)
-        # await bot.send_message(chat_id=chat_id, text=text) | await async errors
-        asyncio.run(send(chat_id, "msg"))
-
+    try:
+        if request.method == "POST":
+            print("received message 2")
+            
+            # retrieve the message in JSON and then transform it to Telegram object
+            update = telegram.Update.de_json(request.get_json(force=True), bot)
+    
+            chat_id = update.message.chat.id
+    
+            print("chat_id: ", chat_id)
+    
+            # Telegram understands UTF-8, so encode text for unicode compatibility
+            text = update.message.text.encode('utf-8')
+            
+            # repeat the same message back (echo)
+            # await bot.send_message(chat_id=chat_id, text=text) | await async errors
+            asyncio.run(send(chat_id, text))
+    except Exception as e:
+        print("ran into exception: ", e)
     return 'ok'
 
 
