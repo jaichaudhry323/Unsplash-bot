@@ -13,12 +13,17 @@
 
 
 import telegram
+import asyncio
 from flask import Flask, request
 
 app = Flask(__name__)
 
 global bot
 bot = telegram.Bot(token='5602023512:AAETtyiKUXT8b-jmXtkk5jkt79xw9YcD0qo')
+
+# using telegram.Bot
+async def send(chat, msg):
+    bot.send_message(chat_id=chat, text=msg)
 
 @app.route('/hook', methods=['GET','POST'])
 def webhook_handler():
@@ -38,7 +43,8 @@ def webhook_handler():
         text = update.message.text.encode('utf-8')
         
         # repeat the same message back (echo)
-        await bot.send_message(chat_id=chat_id, text=text)
+        # await bot.send_message(chat_id=chat_id, text=text) | await async errors
+        asyncio.run(send(chat_id, "msg"))
 
     return 'ok'
 
