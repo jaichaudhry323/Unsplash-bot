@@ -224,13 +224,13 @@ async def back_cb(c,q: types.CallbackQuery):
     )
 
 
-@Bot.route('/healthcheck', methods=['GET'])
-def healthcheck():
-    try:
-        print("received request for healthcheck")
-        return {"code": 0, "message": "success"}  # You can return a dictionary, a string or a `simple_http_server.simple_http_server.Response` object.
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+# @Bot.route('/healthcheck', methods=['GET'])
+# def healthcheck():
+#     try:
+#         print("received request for healthcheck")
+#         return {"code": 0, "message": "success"}  # You can return a dictionary, a string or a `simple_http_server.simple_http_server.Response` object.
+#     except Exception as e:
+#         return jsonify({'error': str(e)}), 500
 
 
 
