@@ -14,10 +14,11 @@ COPY ["bot.py", "config.py", "app.json", "requirements.txt", "app.py", "unsplash
 RUN pip install -r requirements.txt
 
 # Setting a port for your app communications with Telegram servers.
-EXPOSE 80 81
+EXPOSE 80
+# EXPOSE 81  # only one port is picked up so no point in exposing 2 ports
 
 # This command basically executes your main file with Python.
-CMD ["python", "bot.py"]
+# CMD ["python", "bot.py"]
 CMD ["python", "app.py"]
 
 # HEALTHCHECK --interval=30s --timeout=10s CMD curl --fail http://localhost:80/healthcheck || exit 1
