@@ -8,7 +8,7 @@ WORKDIR /EXAMPLE
 
 # This command would copy EVERY FILE from your project folder into your container, so be careful.
 # COPY . .
-COPY ["bot.py", "config.py", "app.json", "requirements.txt", "app.py", "./"]
+COPY ["bot.py", "config.py", "app.json", "requirements.txt", "app.py", "unsplash-welcome.jpg", "./"]
 
 # Installing needed packages and dependencies.**
 RUN pip install -r requirements.txt
