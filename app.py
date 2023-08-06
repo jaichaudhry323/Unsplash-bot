@@ -10,7 +10,7 @@ bot = telegram.Bot(token='5602023512:AAETtyiKUXT8b-jmXtkk5jkt79xw9YcD0qo')
 
 # using telegram.Bot
 async def send(chat, msg):
-    await bot.sendMessage(chat_id=chat, text=msg)
+    await bot.send_message(chat_id=chat, text=msg) # sendMessage is incorrect, use send_message only
     print('Message Sent!')
 
 
