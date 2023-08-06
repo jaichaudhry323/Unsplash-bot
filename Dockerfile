@@ -18,6 +18,6 @@ EXPOSE 80, 81
 
 # This command basically executes your main file with Python.
 CMD ["python", "bot.py"]
-# CMD ["python", "app.py"]
+CMD ["python", "app.py"]
 
 # HEALTHCHECK --interval=30s --timeout=10s CMD curl --fail http://localhost:80/healthcheck || exit 1
