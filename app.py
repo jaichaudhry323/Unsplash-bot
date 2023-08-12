@@ -64,7 +64,7 @@ if __name__ == '__main__':
     dispatcher.add_handler(CallbackQueryHandler(option_selected, pattern='^option_'))
     dispatcher.add_handler(CallbackQueryHandler(sub_option_selected, pattern='^sub_option_'))
     updater.start_polling()
-    app.run('0.0.0.0', port=80, ssl_context='adhoc')
+    app.run('0.0.0.0', port=80)
 
 # ============================================= WORKING using webhook ======================================
 # import telegram
