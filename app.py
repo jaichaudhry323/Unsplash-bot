@@ -9,6 +9,18 @@ app = Flask(__name__)
 updater = Updater(token=bot_token, use_context=True)
 dispatcher = updater.dispatcher
 
+
+@app.route('/healthcheck', methods=['GET'])
+def set_healthcheck():
+    
+    print("health check found")
+    try:
+        print("health check ok")
+        return "health check ok"
+    except:
+        print("health check exception")
+        return "health check ok"
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
     update = telegram.Update.de_json(request.get_json(force=True), bot)
