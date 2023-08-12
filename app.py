@@ -4,6 +4,7 @@ from flask import Flask, request
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 
+bot_token = "5602023512:AAETtyiKUXT8b-jmXtkk5jkt79xw9YcD0qo"
 app = Flask(__name__)
 updater = Updater(token=bot_token, use_context=True)
 dispatcher = updater.dispatcher
